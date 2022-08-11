@@ -38,7 +38,6 @@ const App = () => {
         </div>
       </Header>
       <div className="container">
-
         <div className="leftSide">
           <h1>Calcule o seu IMC.</h1>
           <p>
@@ -62,7 +61,6 @@ const App = () => {
             disabled={toShow ? true : false}>Calcular</button>
         </div>
 
-
         <div className="rightSide">
           {!toShow &&
             <div className="grid">
@@ -80,11 +78,7 @@ const App = () => {
             </div>
           }
         </div>
-
-
       </div>
-
-
     </>
   );
 }

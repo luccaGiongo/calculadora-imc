@@ -6,8 +6,8 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
-   background-color: #f1cd96;
    font-family: Arial, Helvetica, sans-serif;
+   margin-bottom: 50px;
   }
 
   .container{
@@ -111,17 +111,36 @@ export const GlobalStyle = createGlobalStyle`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    background-color: #5c5cc0;
   }
 
+  @media(max-width: 770px){
+    .container{
+      padding: 0 20px;
+      flex-direction:column;
+    }
 
+    .container .leftSide{
+      margin-right: 0;
+      margin-bottom: 40px;
+    }
 
+    .container .rightSide{
+      margin-left: 0;
+    }
 
+    .container .rightSide .rightArrow{
+      margin-left: 0;
+      margin-top: 0;
+      border-radius: 10px;
+    }
+  }
 
-
+@media(max-width: 430px){
+    .container .rightSide .grid{
+      grid-template-columns: 1fr;
+    }
+}  
 `
-
-
 
 
 /* 
