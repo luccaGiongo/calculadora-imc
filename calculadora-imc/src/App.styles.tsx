@@ -52,6 +52,10 @@ export const GlobalStyle = createGlobalStyle`
     outline: 0;
   }
 
+  .leftSide input:disabled{
+    opacity: .5;
+  }
+
   .leftSide button{
     background-color: #5c5cc0;
     color: white;
@@ -68,6 +72,10 @@ export const GlobalStyle = createGlobalStyle`
 
   .leftSide button:hover{
     opacity: 0.5;
+  }
+
+  .leftSide button:disabled{
+    opacity: .5;
   }
 
   .rightSide{
