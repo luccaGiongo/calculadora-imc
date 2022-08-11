@@ -24,6 +24,7 @@ export const GlobalStyle = createGlobalStyle`
   .container .rightSide{
     flex:1;
     margin-left: 40px;
+    background-color: white;
   }
 
   .leftSide{
@@ -62,6 +63,7 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     margin-top: 40px;
     transition: all ease .4s;
+    font-weight: bold;
   }
 
   .leftSide button:hover{
@@ -69,8 +71,42 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .rightSide{
-    background-color: white;
+    display: flex;
   }
+
+  .rightBig{
+    flex: 1;
+    display: flex;
+  }
+
+  .rightArrow{
+    position: absolute;
+    background-color: #227C9D;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: -35px;
+    margin-top: 145px;
+    transition: all ease .4s;
+  }
+
+  .rightArrow:hover{
+    opacity: 0.7;
+  }
+
+  .grid{
+    flex:1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    background-color: #5c5cc0;
+  }
+
+
 
 
 

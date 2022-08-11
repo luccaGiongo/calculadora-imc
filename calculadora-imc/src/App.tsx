@@ -2,19 +2,30 @@
 import { useState } from "react";
 import { GlobalStyle } from "./App.styles";
 import { Header } from "./components/Header/Header.style";
+import { GridItem } from "./components/GridRightSide/GridItem"
 import imagemHeader from './imgs/powered.png';
+import leftArrowImage from './imgs/leftarrow.png'
+import { levels, calculateImc, Level } from './helpers/imc'
 
 
 const App = () => {
   const [heightField, setHeightField] = useState<number>(0);
   const [weightField, setWeightField] = useState<number>(0);
+  const [toShow, setToShow] = useState<Level | null>(null)
 
   const handleCalculateButton = () => {
     if (heightField && weightField) {
+      setToShow(calculateImc(heightField, weightField));
 
     } else {
       alert('Digite todos os campos!')
     }
+  }
+
+  const handleBackButton = () => {
+    setToShow(null);
+    setHeightField(0);
+    setWeightField(0);
   }
 
   return (
@@ -27,6 +38,7 @@ const App = () => {
         </div>
       </Header>
       <div className="container">
+
         <div className="leftSide">
           <h1>Calcule o seu IMC.</h1>
           <p>
@@ -43,9 +55,29 @@ const App = () => {
             value={weightField > 0 ? weightField : ''}
             onChange={e => setWeightField(parseFloat(e.target.value))}
             placeholder="Digite o seu Peso Ex.: 75.3 (em kg)" />
-          <button className="botaoCalcular" onClick={handleCalculateButton}>Calcular</button>
+          <button onClick={handleCalculateButton}>Calcular</button>
         </div>
-        <div className="rightSide">asdasd</div>
+
+
+        <div className="rightSide">
+          {!toShow &&
+            <div className="grid">
+              {levels.map((item, index) => (
+                <GridItem item={item} />
+              ))}
+            </div>
+          }
+          {toShow &&
+            <div className="rightBig">
+              <div className="rightArrow">
+                <img src={leftArrowImage} alt="" width={40} onClick={handleBackButton}/>
+              </div>
+              <GridItem item={toShow} />
+            </div>
+          }
+        </div>
+
+
       </div>
 
 
